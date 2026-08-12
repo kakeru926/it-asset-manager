@@ -1,64 +1,21 @@
-import {
-  Drawer,
-  Toolbar,
-  List,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
-} from "@mui/material";
+import Drawer from '@mui/material/Drawer';
 
-import DashboardIcon from "@mui/icons-material/Dashboard";
-import ComputerIcon from "@mui/icons-material/Computer";
-import PeopleIcon from "@mui/icons-material/People";
-import BusinessIcon from "@mui/icons-material/Business";
-
-const drawerWidth = 240;
-
-const menus = [
-  {
-    text: "ダッシュボード",
-    icon: <DashboardIcon />,
-  },
-  {
-    text: "PC一覧",
-    icon: <ComputerIcon />,
-  },
-  {
-    text: "利用者一覧",
-    icon: <PeopleIcon />,
-  },
-  {
-    text: "部署一覧",
-    icon: <BusinessIcon />,
-  },
-];
-
-const SideDrawer = () => {
+export default function SideDrawer({ open, onClose }) {
   return (
-    <Drawer
-      variant="permanent"
-      sx={{
-        width: drawerWidth,
-        flexShrink: 0,
-        "& .MuiDrawer-paper": {
-          width: drawerWidth,
-          boxSizing: "border-box",
-        },
-      }}
-    >
-      {/* Headerの高さ分下げる */}
-      <Toolbar />
-
-      <List>
-        {menus.map((menu) => (
-          <ListItemButton key={menu.text}>
-            <ListItemIcon>{menu.icon}</ListItemIcon>
-            <ListItemText primary={menu.text} />
-          </ListItemButton>
-        ))}
-      </List>
-    </Drawer>
-  );
+     <div>
+        <Drawer
+          anchor="left"
+          open={open}
+          onClose={onClose}
+        >
+        <div style={{ width: 280 }}>
+          <h4>メニュー</h4>
+          <div>PC台帳</div>
+          <div>ユーザー管理</div>
+          <div>資産管理</div>
+          <div>設定</div>
+        </div>
+        </Drawer>
+      </div>
+  )
 };
-
-export default SideDrawer;

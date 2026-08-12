@@ -1,15 +1,14 @@
-import { Box, Toolbar } from "@mui/material";
-
+import { useState } from "react";
 import AppHeader from "../components/layout/AppHeader";
 import SideDrawer from "../components/layout/SideDrawer";
 
-const drawerWidth = 240;
-
-const MainLayout = () => {
+export default function MainLayout() {
   const [drawerOpen, setDrawerOpen] = useState(false);
+
   const handleDrawerOpen = () => {
     setDrawerOpen(true);
   };
+
   const handleDrawerClose = () => {
     setDrawerOpen(false);
   };
@@ -26,10 +25,5 @@ const MainLayout = () => {
         メインコンテンツ
       </main>
     </>
-      
-
-      
   );
 };
-
-export default MainLayout;
